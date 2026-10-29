@@ -1,0 +1,795 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adveka T. Arjun – drawings, paintings and stories</title>
+<meta name="description" content="The art and stories of Adveka T. Arjun: pencil drawings, marker paintings and her first book, Life of Doom.">
+<meta property="og:title" content="Adveka T. Arjun">
+<meta property="og:description" content="Drawings, paintings and stories by Adveka.">
+<meta property="og:image" content="art/cover-painting.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='8' y='8' width='84' height='84' rx='6' fill='%23F47B20' transform='rotate(-6 50 50)'/%3E%3Ctext x='50' y='72' font-size='62' text-anchor='middle' font-family='Arial Black,Arial' fill='white'%3EA%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Mansalva&family=Andika:wght@400;700&display=swap">
+<style>
+:root {
+  color-scheme: light;
+  --paper: #FFFFFF;
+  --ink: #26232B;
+  --ink-soft: #5E5A66;
+  --orange: #F47B20;
+  --teal: #0EA5A0;
+  --magenta: #E8458B;
+  --yellow: #FFD12E;
+  --blue: #3F86DB;
+  --cut: 'Bagel Fat One', 'Arial Black', Impact, sans-serif;
+  --marker: 'Mansalva', 'Comic Sans MS', 'Chalkboard SE', cursive;
+  --body: 'Andika', 'Trebuchet MS', Verdana, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 19px; line-height: 1.6; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; }
+.wrap { max-width: 1160px; margin: 0 auto; padding: 0 40px; }
+
+.top { display: flex; justify-content: flex-end; gap: 28px; padding-top: 28px; font-family: var(--marker); font-size: 28px; }
+.top a { text-decoration: none; background-image: linear-gradient(var(--u), var(--u)); background-size: 100% 6px; background-repeat: no-repeat; background-position: 0 88%; padding: 0 2px; }
+.top a:hover { background-size: 100% 40%; }
+
+/* hero: her name in cut paper */
+.hero { display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 40px; align-items: end; padding: 56px 0 88px; position: relative; }
+.hero h1 { margin: 0; font-weight: 400; }
+.tiles { display: flex; flex-wrap: nowrap; gap: 5px; }
+.tile {
+  display: grid; place-items: center; width: clamp(48px, 8.6vw, 100px); aspect-ratio: 1 / 1.08;
+  font-family: var(--cut); font-size: clamp(38px, 6.8vw, 80px); line-height: 1; color: #fff; padding-top: 0.06em;
+  transform: rotate(var(--r, -3deg));
+  animation: drop 0.55s cubic-bezier(.2,.9,.3,1.25) both; animation-delay: calc(var(--i) * 90ms + 150ms);
+}
+.tile:nth-child(1) { --r: -5deg; } .tile:nth-child(2) { --r: 3deg; margin-top: 10px; } .tile:nth-child(3) { --r: -2deg; }
+.tile:nth-child(4) { --r: 6deg; margin-top: 16px; } .tile:nth-child(5) { --r: -4deg; } .tile:nth-child(6) { --r: 2deg; margin-top: 6px; }
+.s1 { clip-path: polygon(0.9% 5.9%, 53.2% 0.9%, 96.5% 3.1%, 97.7% 53.5%, 99.3% 99.8%, 54.0% 98.5%, 5.3% 100.0%, 1.6% 52.7%); } .s2 { clip-path: polygon(6.7% 6.6%, 44.7% 0.3%, 94.2% 5.2%, 97.7% 47.7%, 95.8% 95.8%, 51.0% 99.4%, 3.0% 97.2%, 2.5% 55.9%); } .s3 { clip-path: polygon(1.7% 3.8%, 48.4% 2.1%, 95.6% 0.5%, 100.0% 54.0%, 98.2% 98.4%, 55.9% 98.4%, 5.9% 96.7%, 2.2% 45.8%); }
+.c-o { background: var(--orange); } .c-t { background: var(--teal); } .c-m { background: var(--magenta); }
+.c-y { background: var(--yellow); color: var(--ink); } .c-b { background: var(--blue); }
+@keyframes drop { from { opacity: 0; transform: translateY(-40px) rotate(calc(var(--r) * -3)); } to { opacity: 1; transform: rotate(var(--r)); } }
+.hero .surname { display: block; font-family: var(--marker); font-size: clamp(54px, 7vw, 92px); line-height: 1; margin: 10px 0 0 6px; transform: rotate(-2deg); }
+.hero p { margin: 22px 0 0 6px; max-width: 28ch; font-size: 22px; }
+.hero .sisters { max-width: 340px; justify-self: end; }
+.hero .pinky { position: absolute; width: 92px; left: -6px; bottom: -40px; transform: rotate(-8deg); }
+
+h2 { font-family: var(--marker); font-weight: 400; font-size: clamp(56px, 7vw, 84px); line-height: 1; margin: 0 0 36px; }
+h2 .ink { display: inline-block; transform: rotate(-2deg); }
+
+/* art wall */
+.art { padding: 24px 0 96px; }
+.art .intro { max-width: 46ch; margin: -14px 0 40px; color: var(--ink-soft); }
+.wall { list-style: none; margin: 0; padding: 0; columns: 3 300px; column-gap: 40px; }
+.wall li { break-inside: avoid; margin: 0 0 44px; }
+.piece {
+  all: unset; display: block; cursor: zoom-in; background: #fff; padding: 14px 14px 12px;
+  box-shadow: 10px 10px 0 var(--back, var(--yellow)); outline-offset: 6px;
+}
+.piece:focus-visible { outline: 3px solid var(--blue); }
+.piece.sketch img { mix-blend-mode: multiply; max-height: 400px; width: auto; margin: 0 auto; }
+.piece.sketch { border: 2px solid var(--ink); }
+.piece.photo { border: 2px solid var(--ink); }
+.wall li:nth-child(5n+1) .piece { --back: var(--orange); transform: rotate(-1.5deg); }
+.wall li:nth-child(5n+2) .piece { --back: var(--teal); transform: rotate(1deg); }
+.wall li:nth-child(5n+3) .piece { --back: var(--magenta); transform: rotate(-0.6deg); }
+.wall li:nth-child(5n+4) .piece { --back: var(--yellow); transform: rotate(1.6deg); }
+.wall li:nth-child(5n+5) .piece { --back: var(--blue); transform: rotate(-1deg); }
+.piece:hover { box-shadow: 14px 14px 0 var(--back, var(--yellow)); }
+.label { display: block; margin-top: 10px; line-height: 1.25; }
+.label b { font-family: var(--marker); font-weight: 400; font-size: 27px; }
+.label i { font-style: normal; font-size: 15px; color: var(--ink-soft); white-space: nowrap; }
+
+/* stories on torn yellow paper */
+.stories { position: relative; background: var(--yellow); padding: 92px 0 110px; clip-path: polygon(0.00% 4.5px, 1.67% 2.1px, 3.33% 9.1px, 5.00% 1.0px, 6.67% 7.5px, 8.33% 5.1px, 10.00% 0.8px, 11.67% 7.1px, 13.33% 0.5px, 15.00% 6.1px, 16.67% 1.0px, 18.33% 1.3px, 20.00% 5.9px, 21.67% 11.6px, 23.33% 1.7px, 25.00% 3.1px, 26.67% 8.8px, 28.33% 13.3px, 30.00% 8.1px, 31.67% 5.6px, 33.33% 13.7px, 35.00% 0.7px, 36.67% 12.0px, 38.33% 4.1px, 40.00% 2.0px, 41.67% 1.6px, 43.33% 4.3px, 45.00% 11.4px, 46.67% 2.5px, 48.33% 8.1px, 50.00% 8.9px, 51.67% 5.2px, 53.33% 7.7px, 55.00% 0.9px, 56.67% 0.8px, 58.33% 2.9px, 60.00% 9.5px, 61.67% 6.0px, 63.33% 4.4px, 65.00% 8.2px, 66.67% 6.3px, 68.33% 4.2px, 70.00% 11.1px, 71.67% 9.8px, 73.33% 3.4px, 75.00% 8.0px, 76.67% 7.4px, 78.33% 12.3px, 80.00% 10.2px, 81.67% 4.0px, 83.33% 13.7px, 85.00% 1.7px, 86.67% 5.9px, 88.33% 10.6px, 90.00% 2.1px, 91.67% 6.8px, 93.33% 0.5px, 95.00% 9.4px, 96.67% 10.7px, 98.33% 8.0px, 100.00% 12.3px, 100% 100%, 0% 100%); margin-top: 10px; }
+.stories::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 18px; background: var(--paper); clip-path: polygon(0.00% 4.5px, 1.67% 2.1px, 3.33% 9.1px, 5.00% 1.0px, 6.67% 7.5px, 8.33% 5.1px, 10.00% 0.8px, 11.67% 7.1px, 13.33% 0.5px, 15.00% 6.1px, 16.67% 1.0px, 18.33% 1.3px, 20.00% 5.9px, 21.67% 11.6px, 23.33% 1.7px, 25.00% 3.1px, 26.67% 8.8px, 28.33% 13.3px, 30.00% 8.1px, 31.67% 5.6px, 33.33% 13.7px, 35.00% 0.7px, 36.67% 12.0px, 38.33% 4.1px, 40.00% 2.0px, 41.67% 1.6px, 43.33% 4.3px, 45.00% 11.4px, 46.67% 2.5px, 48.33% 8.1px, 50.00% 8.9px, 51.67% 5.2px, 53.33% 7.7px, 55.00% 0.9px, 56.67% 0.8px, 58.33% 2.9px, 60.00% 9.5px, 61.67% 6.0px, 63.33% 4.4px, 65.00% 8.2px, 66.67% 6.3px, 68.33% 4.2px, 70.00% 11.1px, 71.67% 9.8px, 73.33% 3.4px, 75.00% 8.0px, 76.67% 7.4px, 78.33% 12.3px, 80.00% 10.2px, 81.67% 4.0px, 83.33% 13.7px, 85.00% 1.7px, 86.67% 5.9px, 88.33% 10.6px, 90.00% 2.1px, 91.67% 6.8px, 93.33% 0.5px, 95.00% 9.4px, 96.67% 10.7px, 98.33% 8.0px, 100.00% 12.3px, 100% 100%, 0% 100%); }
+.story { display: grid; grid-template-columns: 300px 1fr; gap: 48px; align-items: start; }
+.story .cover { transform: rotate(-3deg); border: 3px solid var(--ink); background: var(--ink); }
+.story h3 { font-family: var(--cut); font-weight: 400; font-size: clamp(44px, 5vw, 64px); line-height: 1; margin: 0 0 14px; }
+.story .blurb { margin: 0 0 18px; max-width: 46ch; font-size: 20px; }
+.story .q { margin: 0 0 22px; max-width: 34ch; font-family: var(--marker); font-size: 30px; line-height: 1.2; color: #B72765; }
+.story .facts { margin: 0 0 26px; font-size: 17px; }
+.btn {
+  display: inline-block; font-family: var(--marker); font-size: 28px; line-height: 1; padding: 14px 24px 12px; text-decoration: none;
+  background: var(--paper); color: var(--ink); border: 3px solid var(--ink); box-shadow: 6px 6px 0 var(--ink);
+}
+.btn:hover { transform: translate(2px, 2px); box-shadow: 4px 4px 0 var(--ink); }
+.btn[aria-disabled="true"] { box-shadow: none; border-style: dashed; cursor: default; transform: none; }
+.pages { list-style: none; margin: 56px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; align-items: start; }
+.pages li { background: #fff; padding: 8px 8px 6px; border: 2px solid var(--ink); }
+.pages li:nth-child(odd) { transform: rotate(-2deg); } .pages li:nth-child(even) { transform: rotate(1.8deg) translateY(12px); }
+.pages span { display: block; font-family: var(--marker); font-size: 22px; margin-top: 4px; }
+.pages-title { font-family: var(--marker); font-size: 34px; margin: 64px 0 0; }
+.next { margin-top: 72px; border: 3px dashed var(--ink); padding: 28px 30px; max-width: 560px; transform: rotate(-1deg); background: rgba(255,255,255,.45); }
+.next p { margin: 0; }
+.next .big { font-family: var(--marker); font-size: 36px; line-height: 1.1; margin-bottom: 6px; }
+
+/* about */
+.about { padding: 96px 0 40px; display: grid; grid-template-columns: 1fr 320px; gap: 48px; align-items: center; }
+.about p { margin: 0 0 20px; max-width: 54ch; font-size: 20px; }
+.about .sig { mix-blend-mode: multiply; transform: rotate(-4deg); }
+footer { padding: 40px 0 56px; display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; color: var(--ink-soft); font-size: 15px; }
+footer img { width: 150px; mix-blend-mode: multiply; }
+
+/* big view */
+dialog { border: 3px solid var(--ink); padding: 18px 18px 14px; max-width: min(92vw, 980px); max-height: 92vh; background: #fff; box-shadow: 12px 12px 0 var(--orange); }
+dialog::backdrop { background: rgba(38,35,43,.72); }
+dialog img { max-height: 76vh; width: auto; margin: 0 auto; }
+dialog .bar { display: flex; justify-content: space-between; align-items: center; gap: 20px; margin-top: 10px; }
+dialog .bar b { font-family: var(--marker); font-weight: 400; font-size: 30px; }
+dialog button { font-family: var(--body); font-weight: 700; font-size: 17px; background: var(--yellow); color: var(--ink); border: 2px solid var(--ink); padding: 8px 16px; cursor: pointer; }
+
+@media (max-width: 860px) {
+  .wrap { padding: 0 22px; }
+  .top { justify-content: flex-start; font-size: 24px; gap: 20px; }
+  .hero { grid-template-columns: 1fr; padding: 36px 0 72px; }
+  .hero .sisters { justify-self: start; max-width: 260px; }
+  .hero .pinky { display: none; }
+  .story { grid-template-columns: 1fr; gap: 32px; }
+  .story .cover { max-width: 240px; }
+  .pages { grid-template-columns: repeat(2, 1fr); }
+  .about { grid-template-columns: 1fr; }
+  .about .sig { width: 240px; }
+  footer { flex-direction: column; align-items: flex-start; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .tile { animation: none; }
+}
+
+/* pencil cursor + doodle layer; --pencil is swapped by the script when a colour or tool is picked */
+@media (pointer: fine) {
+  html { --pencil: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cg transform='translate(4 60) rotate(-45) scale(0.84)' stroke='%2326232B' stroke-width='2.4' stroke-linejoin='round'%3E%3Crect x='80' y='-9' width='10' height='18' rx='3' fill='%23E8458B'/%3E%3Crect x='72' y='-9' width='8' height='18' fill='%23C9C6CF'/%3E%3Crect x='22' y='-9' width='50' height='18' fill='%23FFD12E'/%3E%3Cpath d='M22 -3H72M22 3H72' stroke-width='1.4'/%3E%3Cpath d='M22 -9L8 -3.2V3.2L22 9Z' fill='%23F5D1A3'/%3E%3Cpath d='M8 -3.2L0 0L8 3.2Z' fill='%2326232B'/%3E%3C/g%3E%3C/svg%3E") 4 60, auto; }
+  html, html * { cursor: var(--pencil) !important; }
+  /* over the toolbar: normal arrow, and a hand on anything clickable */
+  .doodle-tools, .doodle-tools * { cursor: default !important; }
+  .doodle-tools button, .doodle-tools .custom, .doodle-tools .custom input { cursor: pointer !important; }
+  .doodle-tools button:disabled { cursor: not-allowed !important; }
+}
+.doodle { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 50; mix-blend-mode: multiply; }
+.paper-sheet { position: fixed; inset: 0; z-index: 49; background: #fff; }
+.mirror-guide { position: fixed; top: 0; bottom: 0; width: 0; border-left: 2px dashed rgba(38,35,43,.35); z-index: 50; pointer-events: none; }
+.paper-sheet[hidden], .mirror-guide[hidden] { display: none; }
+html.on-paper { overflow: hidden; }
+body.drawing { user-select: none; -webkit-user-select: none; }
+img { -webkit-user-drag: none; }
+.doodle-tools {
+  position: fixed; right: 16px; bottom: 16px; z-index: 51; width: 266px; max-height: calc(100vh - 32px); overflow-y: auto; overscroll-behavior: contain; padding: 10px 12px 12px;
+  background: #fff; border: 3px solid var(--ink); box-shadow: 5px 5px 0 var(--ink); font-family: var(--marker);
+}
+.doodle-tools button { font: inherit; color: var(--ink); background: none; border: 0; padding: 0; }
+.doodle-tools .fold { display: block; width: 100%; text-align: left; font-size: 24px; line-height: 1; }
+.doodle-tools .fold::after { content: " \25BE"; }
+.doodle-tools .fold[aria-expanded="false"]::after { content: " \25B4"; }
+.doodle-tools .panel { display: grid; gap: 10px; margin-top: 10px; }
+.doodle-tools .panel[hidden] { display: none; }
+.doodle-tools .grid { display: grid; grid-template-columns: repeat(6, 34px); gap: 6px; justify-content: space-between; }
+.doodle-tools .t {
+  width: 34px; height: 34px; display: grid; place-items: center; border: 2px solid transparent; border-radius: 7px;
+  font-family: system-ui, sans-serif; font-size: 19px; line-height: 1;
+}
+.doodle-tools .t img { max-width: 28px; max-height: 28px; mix-blend-mode: multiply; filter: contrast(2.2); }
+.doodle-tools .t[aria-pressed="true"] { border-color: var(--ink); background: #EEECF1; }
+.doodle-tools .t:disabled { opacity: .3; }
+.doodle-tools .size i { display: block; border-radius: 50%; background: var(--cur, var(--ink)); }
+.doodle-tools .pen { width: 34px; height: 34px; border-radius: 50%; background: var(--c); border: 2px solid var(--ink); }
+.doodle-tools .pen[aria-pressed="true"], .doodle-tools .custom.picked { box-shadow: 0 0 0 3px #fff, 0 0 0 5px var(--ink); }
+.doodle-tools .custom { position: relative; overflow: hidden; background: conic-gradient(#E5322D, #FFC400, #3BB54A, #0EA5A0, #3F86DB, #7B4FC9, #E8458B, #E5322D); }
+.doodle-tools .custom input { position: absolute; inset: -4px; width: calc(100% + 8px); height: calc(100% + 8px); opacity: 0; border: 0; padding: 0; }
+.doodle-tools .acts { display: flex; gap: 6px; }
+.doodle-tools .acts button { flex: 1; font-size: 18px; line-height: 1.05; padding: 8px 4px 6px; border: 2px solid var(--ink); background: var(--yellow); }
+.doodle-tools .acts button:disabled { opacity: .4; }
+.doodle-tools .acts [hidden] { display: none; }
+.doodle-tools .acts .save { background: var(--teal); color: #fff; }
+.doodle-tools .acts .savepage { background: var(--blue); color: #fff; }
+.doodle-tools .note { margin: 0; font-family: var(--body); font-size: 13px; line-height: 1.3; color: var(--ink-soft); }
+.doodle-tools .note:empty { display: none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="top" aria-label="Main">
+  <a href="#art" style="--u: var(--orange)">Art</a>
+  <a href="#stories" style="--u: var(--teal)">Stories</a>
+  <a href="#about" style="--u: var(--magenta)">About</a>
+</nav>
+
+<header class="hero">
+  <div>
+    <h1><span class="tiles"><span class="tile c-o s1" style="--i:0" aria-hidden="true">A</span><span class="tile c-t s2" style="--i:1" aria-hidden="true">D</span><span class="tile c-m s3" style="--i:2" aria-hidden="true">V</span><span class="tile c-y s1" style="--i:3" aria-hidden="true">E</span><span class="tile c-b s2" style="--i:4" aria-hidden="true">K</span><span class="tile c-o s3" style="--i:5" aria-hidden="true">A</span></span><span class="surname">T. Arjun</span><span class="sr" style="position:absolute;left:-9999px">Adveka T. Arjun</span></h1>
+    <p>Draws in pencil, paints with marker pens and writes stories.</p>
+  </div>
+  <img class="sisters" src="art/sisters.png" width="620" height="883" alt="Adveka’s pencil drawing of two princess sisters holding hands.">
+</header>
+</div>
+
+<main>
+<section id="art" class="art" aria-labelledby="art-title">
+  <div class="wrap">
+    <h2 id="art-title"><span class="ink">Art</span></h2>
+    <p class="intro">Paintings and drawings from her notebooks. Tap any picture to see it bigger.</p>
+    <ul class="wall">
+      <li><button class="piece photo" type="button" data-full="art/cover-painting.jpg" data-alt="Adveka’s marker painting of a giant dark wave curling around a stained-glass window with a yellow sun, green hills and a little boat." data-title="The first cover"><img src="art/cover-painting.jpg" width="900" height="1157" alt="Adveka’s marker painting of a giant dark wave curling around a stained-glass window with a yellow sun, green hills and a little boat."><span class="label"><b>The first cover</b> <i>Marker pens</i></span></button></li><li><button class="piece sketch" type="button" data-full="art/eclipse.png" data-alt="Pencil drawing of a witch in a tall hat with a wand, surrounded by ghosts, spiders and a bat." data-title="Eclipse and her ghosts"><img src="art/eclipse.png" width="760" height="685" alt="Pencil drawing of a witch in a tall hat with a wand, surrounded by ghosts, spiders and a bat."><span class="label"><b>Eclipse and her ghosts</b> <i>Pencil</i></span></button></li><li><button class="piece sketch" type="button" data-full="art/broom.png" data-alt="Pencil drawing of a witch flying on a broomstick under the stars and a crescent moon." data-title="Off on a broomstick"><img src="art/broom.png" width="760" height="473" alt="Pencil drawing of a witch flying on a broomstick under the stars and a crescent moon." loading="lazy"><span class="label"><b>Off on a broomstick</b> <i>Pencil</i></span></button></li><li><button class="piece sketch" type="button" data-full="art/king.png" data-alt="Pencil drawing of a tall king with a crown and a speech bubble saying ‘yes why not’." data-title="The king says yes"><img src="art/king.png" width="360" height="960" alt="Pencil drawing of a tall king with a crown and a speech bubble saying ‘yes why not’." loading="lazy"><span class="label"><b>The king says yes</b> <i>Pencil</i></span></button></li><li><button class="piece sketch" type="button" data-full="art/fluffy.png" data-alt="Pencil drawing of a cat with a curly tail." data-title="Fluffy"><img src="art/fluffy.png" width="460" height="347" alt="Pencil drawing of a cat with a curly tail." loading="lazy"><span class="label"><b>Fluffy</b> <i>Pencil</i></span></button></li><li><button class="piece sketch" type="button" data-full="art/lava.png" data-alt="Pencil drawing of a princess using magic to lift a bunny in a bubble away from the lava while her friends watch." data-title="Saved from the lava"><img src="art/lava.png" width="760" height="511" alt="Pencil drawing of a princess using magic to lift a bunny in a bubble away from the lava while her friends watch." loading="lazy"><span class="label"><b>Saved from the lava</b> <i>Pencil</i></span></button></li><li><button class="piece sketch" type="button" data-full="art/pinky.png" data-alt="Pencil drawing of a bunny with long floppy ears." data-title="Pinky"><img src="art/pinky.png" width="360" height="543" alt="Pencil drawing of a bunny with long floppy ears." loading="lazy"><span class="label"><b>Pinky</b> <i>Pencil</i></span></button></li><li><button class="piece sketch" type="button" data-full="art/lily.png" data-alt="Pencil drawing of a smiling book with arms and legs." data-title="Lily"><img src="art/lily.png" width="360" height="406" alt="Pencil drawing of a smiling book with arms and legs." loading="lazy"><span class="label"><b>Lily</b> <i>Pencil</i></span></button></li><li><button class="piece sketch" type="button" data-full="art/rosy.png" data-alt="Pencil drawing of a smiling rose." data-title="Rosy"><img src="art/rosy.png" width="300" height="522" alt="Pencil drawing of a smiling rose." loading="lazy"><span class="label"><b>Rosy</b> <i>Pencil</i></span></button></li>
+    </ul>
+  </div>
+</section>
+
+<section id="stories" class="stories" aria-labelledby="stories-title">
+  <div class="wrap">
+    <h2 id="stories-title"><span class="ink">Stories</span></h2>
+    <article class="story" aria-labelledby="lod">
+      <img class="cover" src="art/book-cover.jpg" width="640" height="905" alt="Book cover of Life of Doom by Adveka T. Arjun.">
+      <div>
+        <h3 id="lod">Life of Doom</h3>
+        <p class="blurb">Crystal’s sister, Starlight, disappeared in the night. So it is up to Crystal and her friends to find her. They cross dangerous obstacles and find messages, riddles, clues and surprises.</p>
+        <p class="q">Can Crystal find her sister before she turns into the witch’s slave?</p>
+        <p class="facts">Her first book. A paperback in eight chapters, written and drawn by hand.</p>
+        <!-- When the book is live on Amazon: replace href="#" with the Amazon link, remove aria-disabled="true", and change the text to "Buy on Amazon". -->
+        <a class="btn" href="#" aria-disabled="true" role="link">Coming soon on Amazon</a>
+      </div>
+    </article>
+    <p class="pages-title">Pages from the notebook</p>
+    <ul class="pages"><li><img src="art/page-01.jpg" width="640" height="840" alt="Notebook page 1 with handwriting and a drawing of two beds and a witch." loading="lazy"><span>Page 1</span></li><li><img src="art/page-02.jpg" width="640" height="998" alt="Notebook page 2: the witch flies away with Starlight." loading="lazy"><span>Page 2</span></li><li><img src="art/page-08.jpg" width="640" height="891" alt="Notebook page 8: Crystal saves Pinky from the lava." loading="lazy"><span>Page 8</span></li><li><img src="art/page-15.jpg" width="640" height="905" alt="Notebook page 15: the witch’s tower and lightning." loading="lazy"><span>Page 15</span></li></ul>
+    <div class="next">
+      <p class="big">More stories on the way</p>
+      <p>New stories will appear here as Adveka writes them.</p>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+<section id="about" class="about" aria-labelledby="about-title">
+  <div>
+    <h2 id="about-title"><span class="ink">About</span></h2>
+    <p>Adveka draws with pencil, paints with marker pens and turns her drawings into stories. Her first story, Life of Doom, was written and drawn by hand, one notebook page at a time.</p>
+  </div>
+  <img class="sig" src="art/signature.png" width="520" height="170" alt="Adveka’s own handwriting: by Adveka T. Arjun">
+</section>
+<footer>
+  <p>© 2026 Adveka T. Arjun. All drawings, paintings and stories are by Adveka.</p>
+  <img src="art/fluffy.png" width="460" height="347" alt="" loading="lazy">
+</footer>
+</div>
+</main>
+
+<dialog id="view" aria-labelledby="view-title">
+  <img id="view-img" src="" alt="">
+  <div class="bar"><b id="view-title"></b><button type="button" id="view-close">Close</button></div>
+</dialog>
+<script>
+(function () {
+  var d = document.getElementById('view');
+  if (!d || typeof d.showModal !== 'function') return;
+  var img = document.getElementById('view-img'), t = document.getElementById('view-title');
+  document.querySelectorAll('.piece').forEach(function (b) {
+    b.addEventListener('click', function () {
+      img.src = b.dataset.full; img.alt = b.dataset.alt; t.textContent = b.dataset.title; d.showModal();
+    });
+  });
+  document.getElementById('view-close').addEventListener('click', function () { d.close(); });
+  d.addEventListener('click', function (e) { if (e.target === d) d.close(); });
+})();
+
+// doodle toolbar: draw on the page (or on a blank sheet of paper) with a mouse, pen, or a finger while the toolbar is open on a phone.
+// Page drawings are stored in page coordinates so they stay pinned to the page as it scrolls.
+(function () {
+  var c = document.createElement('canvas'), ctx = c.getContext('2d');
+  if (!ctx) return;
+  c.className = 'doodle'; c.setAttribute('aria-hidden', 'true');
+  var sheet = document.createElement('div'); sheet.className = 'paper-sheet'; sheet.hidden = true;
+  var guide = document.createElement('div'); guide.className = 'mirror-guide'; guide.hidden = true;
+
+  var INK = '#26232B', KEY = 'adveka-doodle', COARSE = matchMedia('(pointer: coarse)').matches;
+  var colours = [['Pencil grey', INK], ['Red', '#E5322D'], ['Orange', '#F47B20'], ['Yellow', '#FFC400'], ['Green', '#3BB54A'],
+                 ['Teal', '#0EA5A0'], ['Blue', '#3F86DB'], ['Purple', '#7B4FC9'], ['Pink', '#E8458B'], ['Brown', '#8B5A2B']];
+  var brushes = [['pencil', 'Pencil', '✏️'], ['crayon', 'Crayon', '🖍️'], ['highlighter', 'Highlighter', '🖊️'],
+                 ['rainbow', 'Rainbow pen', '🌈'], ['spray', 'Spray paint', '💨'], ['glitter', 'Glitter pen', '✨']];
+  var shapes = [['line', 'Straight line', '╱'], ['ellipse', 'Circle', '◯'], ['rect', 'Rectangle', '▭']];
+  var sizes = [['Thin', 3], ['Medium', 7], ['Thick', 14]];
+  var stickers = [['art/fluffy.png', 'Fluffy'], ['art/pinky.png', 'Pinky'], ['art/rosy.png', 'Rosy'],
+                  ['art/signature.png', 'Signature'], ['heart', 'Heart'], ['star', 'Star']];
+  var SPARKLE = ['#FFC400', '#E8458B', '#3F86DB', '#0EA5A0', '#7B4FC9', '#C9C6CF'];
+  var H2C = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+  var H2C_SRI = 'sha384-ZZ1pncU3bQe8y31yfZdMFdSpttDoPmOZg2wguVK9almUodir1PghgT0eY7Mrty8H';
+
+  var pen = { colour: INK, width: 3, tool: 'pencil', sticker: null, mirror: false }, lastBrush = 'pencil', paper = false;
+  var layers = { page: { items: [], redo: [] }, paper: { items: [], redo: [] } };
+  function L() { return paper ? layers.paper : layers.page; }
+  function isShape(t) { return t === 'line' || t === 'ellipse' || t === 'rect'; }
+
+  // ---------- toolbar ----------
+  function btn(cls, label, inner, data) {
+    return '<button type="button" class="t ' + cls + '" aria-label="' + label + '" title="' + label + '" ' + data + '>' + inner + '</button>';
+  }
+  var tools = document.createElement('div');
+  tools.className = 'doodle-tools'; tools.setAttribute('role', 'toolbar'); tools.setAttribute('aria-label', 'Drawing tools');
+  tools.innerHTML = '<button type="button" class="fold" data-act="fold" aria-expanded="true">Pencils</button><div class="panel">'
+    + '<div class="grid">'
+    + colours.map(function (p) { return '<button type="button" class="pen" aria-label="' + p[0] + '" title="' + p[0] + '" data-colour="' + p[1] + '" style="--c:' + p[1] + '"></button>'; }).join('')
+    + '<label class="pen custom" title="Pick any colour"><input type="color" value="#E8458B" aria-label="Pick any colour"></label></div>'
+    + '<div class="grid">' + brushes.map(function (b) { return btn('', b[1], b[2], 'data-tool="' + b[0] + '"'); }).join('') + '</div>'
+    + '<div class="grid">' + shapes.map(function (s) { return btn('', s[1], s[2], 'data-tool="' + s[0] + '"'); }).join('')
+    + sizes.map(function (s) { return btn('size', s[0] + ' line', '<i style="width:' + (s[1] + 3) + 'px;height:' + (s[1] + 3) + 'px"></i>', 'data-width="' + s[1] + '"'); }).join('') + '</div>'
+    + '<div class="grid">' + stickers.map(function (s) {
+        var inner = s[0] === 'heart' ? '❤️' : s[0] === 'star' ? '⭐' : '<img src="' + s[0] + '" alt="">';
+        return btn('', s[1] + ' sticker', inner, 'data-sticker="' + s[0] + '"');
+      }).join('') + '</div>'
+    + '<div class="grid">' + btn('', 'Fill bucket', '🪣', 'data-tool="fill"') + btn('', 'Eraser', '🧽', 'data-tool="eraser"')
+    + btn('', 'Mirror mode', '🪞', 'data-act="mirror"') + btn('', 'Blank paper', '📄', 'data-act="paper"')
+    + btn('', 'Undo (Ctrl+Z)', '↶', 'data-act="undo"') + btn('', 'Redo (Ctrl+Shift+Z)', '↷', 'data-act="redo"') + '</div>'
+    + '<div class="acts"><button type="button" class="save" data-act="save">Save</button>'
+    + '<button type="button" class="savepage" data-act="savepage">Save + page</button>'
+    + '<button type="button" data-act="clear">Rub out</button></div><p class="note" aria-live="polite"></p></div>';
+  var panel = tools.querySelector('.panel'), fold = tools.querySelector('.fold'), note = tools.querySelector('.note');
+  var picker = tools.querySelector('input[type=color]');
+  function q(sel) { return tools.querySelector(sel); }
+  document.body.appendChild(sheet); document.body.appendChild(c); document.body.appendChild(guide); document.body.appendChild(tools);
+
+  // ---------- cursors ----------
+  function svgCursor(svg, x, y) { return 'url("data:image/svg+xml,' + encodeURIComponent(svg) + '") ' + x + ' ' + y + ', auto'; }
+  function pencilCursor(col) {
+    var body = col === INK ? '#FFD12E' : col;
+    return svgCursor("<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'>"
+      + "<g transform='translate(4 60) rotate(-45) scale(0.84)' stroke='" + INK + "' stroke-width='2.4' stroke-linejoin='round'>"
+      + "<rect x='80' y='-9' width='10' height='18' rx='3' fill='#E8458B'/><rect x='72' y='-9' width='8' height='18' fill='#C9C6CF'/>"
+      + "<rect x='22' y='-9' width='50' height='18' fill='" + body + "'/><path d='M22 -3H72M22 3H72' stroke-width='1.4'/>"
+      + "<path d='M22 -9L8 -3.2V3.2L22 9Z' fill='#F5D1A3'/><path d='M8 -3.2L0 0L8 3.2Z' fill='" + col + "'/></g></svg>", 4, 60);
+  }
+  var eraserCursor = svgCursor("<svg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'>"
+    + "<g transform='rotate(-30 24 24)' stroke='" + INK + "' stroke-width='2.4' stroke-linejoin='round'>"
+    + "<rect x='8' y='14' width='32' height='20' rx='4' fill='#E8458B'/><rect x='28' y='14' width='12' height='20' rx='4' fill='#3F86DB'/></g></svg>", 24, 24);
+  function bucketCursor(col) {
+    return svgCursor("<svg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 44 44'>"
+      + "<path d='M12 18L25 8L38 22L25 32Z' fill='#C9C6CF' stroke='" + INK + "' stroke-width='2.4' stroke-linejoin='round'/>"
+      + "<path d='M12 18Q4 26 6 38' fill='none' stroke='" + col + "' stroke-width='5' stroke-linecap='round'/></svg>", 6, 38);
+  }
+  function cursor() {
+    var t = pen.tool;
+    if (t === 'eraser') return eraserCursor;
+    if (t === 'fill') return bucketCursor(pen.colour);
+    if (t === 'sticker' || isShape(t)) return 'crosshair';
+    return pencilCursor(pen.colour);
+  }
+
+  // ---------- painting ----------
+  function rand(seed) {
+    return function () {
+      seed = seed + 0x6D2B79F5 | 0;
+      var t = Math.imul(seed ^ seed >>> 15, 1 | seed);
+      t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+      return ((t ^ t >>> 14) >>> 0) / 4294967296;
+    };
+  }
+  var images = {};
+  function image(src) {
+    if (!images[src]) { images[src] = new Image(); images[src].onload = redraw; images[src].src = src; }
+    return images[src];
+  }
+  function live(items) {
+    for (var i = items.length - 1; i >= 0; i--) if (items[i].type === 'clear') return items.slice(i + 1);
+    return items;
+  }
+  function trace(g, pts, dx, dy) {
+    g.beginPath();
+    pts.forEach(function (p, i) { i ? g.lineTo(p[0] - dx, p[1] - dy) : g.moveTo(p[0] - dx, p[1] - dy); });
+    if (pts.length === 1) g.lineTo(pts[0][0] - dx + 0.1, pts[0][1] - dy);
+    g.stroke();
+  }
+  function heartOrStar(g, kind) {
+    g.beginPath();
+    if (kind === 'heart') {
+      g.moveTo(0, -0.15);
+      g.bezierCurveTo(-0.1, -0.45, -0.5, -0.45, -0.5, -0.1); g.bezierCurveTo(-0.5, 0.15, -0.2, 0.3, 0, 0.45);
+      g.bezierCurveTo(0.2, 0.3, 0.5, 0.15, 0.5, -0.1); g.bezierCurveTo(0.5, -0.45, 0.1, -0.45, 0, -0.15);
+    } else {
+      for (var i = 0; i < 10; i++) {
+        var a = -Math.PI / 2 + i * Math.PI / 5, r = i % 2 ? 0.21 : 0.5;
+        i ? g.lineTo(Math.cos(a) * r, Math.sin(a) * r) : g.moveTo(Math.cos(a) * r, Math.sin(a) * r);
+      }
+    }
+    g.closePath();
+  }
+  function stickerSize(it) {
+    if (it.src === 'heart' || it.src === 'star') return [it.size, it.size];
+    var im = image(it.src);
+    return [it.size, im.naturalWidth ? it.size * im.naturalHeight / im.naturalWidth : it.size];
+  }
+  function drawItem(g, it, dx, dy) {
+    g.lineCap = 'round'; g.lineJoin = 'round'; g.strokeStyle = g.fillStyle = it.colour || INK; g.lineWidth = it.width || 1;
+    if (it.type === 'stroke') {
+      var pts = it.pts, b = it.brush;
+      if (b === 'eraser') { g.globalCompositeOperation = 'destination-out'; trace(g, pts, dx, dy); }
+      else if (b === 'pencil') { g.globalAlpha = 0.88; trace(g, pts, dx, dy); }
+      else if (b === 'highlighter') { g.globalAlpha = 0.35; g.lineWidth = it.width * 2.5 + 10; trace(g, pts, dx, dy); }
+      else if (b === 'rainbow') {
+        for (var i = 0; i < pts.length; i++) {
+          var a = pts[Math.max(0, i - 1)], p = pts[i];
+          g.strokeStyle = 'hsl(' + ((it.hue + i * 5) % 360) + ',85%,55%)';
+          g.beginPath(); g.moveTo(a[0] - dx, a[1] - dy); g.lineTo(p[0] - dx + (i ? 0 : 0.1), p[1] - dy); g.stroke();
+        }
+      } else if (b === 'crayon') {
+        var w = it.width * 1.6 + 2, n = Math.ceil(w / 2), rnd = rand(it.seed);
+        g.lineWidth = w; g.globalAlpha = 0.45; trace(g, pts, dx, dy);
+        g.globalAlpha = 0.6;
+        for (var j = 1; j < pts.length; j++) {
+          var s = pts[j - 1], e = pts[j], steps = Math.max(1, Math.hypot(e[0] - s[0], e[1] - s[1]) / 2 | 0);
+          for (var k = 0; k < steps; k++) {
+            var x = s[0] + (e[0] - s[0]) * k / steps - dx, y = s[1] + (e[1] - s[1]) * k / steps - dy;
+            for (var m = 0; m < n; m++) g.fillRect(x + (rnd() - 0.5) * w, y + (rnd() - 0.5) * w, 1.3, 1.3);
+          }
+        }
+      } else if (b === 'spray') {
+        g.globalAlpha = 0.9;
+        it.dots.forEach(function (d) { g.fillRect(d[0] - dx, d[1] - dy, 1.6, 1.6); });
+      } else if (b === 'glitter') {
+        g.globalAlpha = 0.5; trace(g, pts, dx, dy); g.globalAlpha = 1;
+        it.dots.forEach(function (d) {
+          var x = d[0] - dx, y = d[1] - dy, r = d[3];
+          g.fillStyle = SPARKLE[d[2]];
+          if (r > 3) { g.fillRect(x - r, y - 0.7, r * 2, 1.4); g.fillRect(x - 0.7, y - r, 1.4, r * 2); }
+          else { g.beginPath(); g.arc(x, y, r / 2 + 0.4, 0, Math.PI * 2); g.fill(); }
+        });
+      }
+    } else if (it.type === 'shape') {
+      var A = it.a, B = it.b;
+      g.globalAlpha = 0.9; g.beginPath();
+      if (it.shape === 'line') { g.moveTo(A[0] - dx, A[1] - dy); g.lineTo(B[0] - dx, B[1] - dy); }
+      else if (it.shape === 'rect') g.rect(Math.min(A[0], B[0]) - dx, Math.min(A[1], B[1]) - dy, Math.abs(B[0] - A[0]), Math.abs(B[1] - A[1]));
+      else g.ellipse((A[0] + B[0]) / 2 - dx, (A[1] + B[1]) / 2 - dy, Math.abs(B[0] - A[0]) / 2, Math.abs(B[1] - A[1]) / 2, 0, 0, Math.PI * 2);
+      g.stroke();
+    } else if (it.type === 'sticker') {
+      var wh = stickerSize(it), sx = it.x - dx, sy = it.y - dy;
+      if (it.src === 'heart' || it.src === 'star') {
+        g.save(); g.translate(sx, sy); g.scale(it.size, it.size); heartOrStar(g, it.src);
+        g.fillStyle = it.src === 'heart' ? '#E8458B' : '#FFD12E'; g.fill();
+        g.lineWidth = 3 / it.size; g.strokeStyle = INK; g.stroke(); g.restore();
+      } else if (image(it.src).naturalWidth) {
+        g.globalCompositeOperation = 'multiply';
+        g.drawImage(image(it.src), sx - wh[0] / 2, sy - wh[1] / 2, wh[0], wh[1]);
+      }
+    } else if (it.type === 'fill' && it.img && (it.img.width || it.img.naturalWidth)) {
+      g.globalCompositeOperation = 'multiply';
+      g.drawImage(it.img, it.x - dx, it.y - dy, it.w, it.h);
+    }
+    g.globalCompositeOperation = 'source-over'; g.globalAlpha = 1;
+  }
+  function paint(g, dx, dy, items) {
+    live(items).forEach(function (it) {
+      drawItem(g, it, dx, dy);
+      if (it.mx != null) {
+        // mirror mode: draw the same thing reflected across the page's centre line
+        g.save(); g.translate(2 * (it.mx - dx), 0); g.scale(-1, 1); drawItem(g, it, dx, dy); g.restore();
+      }
+    });
+  }
+  function size() {
+    var r = window.devicePixelRatio || 1;
+    c.width = Math.round(innerWidth * r); c.height = Math.round(innerHeight * r);
+    ctx.setTransform(r, 0, 0, r, 0, 0);
+    guide.style.left = (document.documentElement.clientWidth / 2) + 'px';
+    redraw();
+  }
+  function redraw() {
+    ctx.clearRect(0, 0, innerWidth, innerHeight);
+    if (paper) paint(ctx, 0, 0, layers.paper.items);
+    else paint(ctx, scrollX, scrollY, layers.page.items);
+  }
+
+  // ---------- history, memory ----------
+  function hasInk() { return live(L().items).some(function (it) { return !(it.type === 'stroke' && it.brush === 'eraser'); }); }
+  function push(it) { L().items.push(it); L().redo = []; }
+  function changed() { redraw(); update(); store(); }
+  function undo() { var l = L(); if (l.items.length) { l.redo.push(l.items.pop()); changed(); } }
+  function redo() { var l = L(); if (l.redo.length) { l.items.push(l.redo.pop()); changed(); } }
+  function clearAll() { if (hasInk()) { push({ type: 'clear' }); changed(); } }
+
+  function store() {
+    function ser(items) {
+      return live(items).map(function (it) {
+        return it.type === 'fill' ? { type: 'fill', x: it.x, y: it.y, w: it.w, h: it.h, url: it.url } : it;
+      });
+    }
+    try { localStorage.setItem(KEY, JSON.stringify({ page: ser(layers.page.items), paper: ser(layers.paper.items) })); }
+    catch (err) { /* storage full or blocked: the drawing still works, it just won't be remembered */ }
+  }
+  function restore() {
+    var saved;
+    try { saved = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (err) { return; }
+    if (!saved) return;
+    ['page', 'paper'].forEach(function (k) {
+      if (!Array.isArray(saved[k])) return;
+      layers[k].items = saved[k].filter(function (it) { return it && typeof it.type === 'string'; }).map(function (it) {
+        if (it.type === 'fill' && typeof it.url === 'string' && it.url.indexOf('data:image/png') === 0) {
+          it.img = new Image(); it.img.onload = redraw; it.img.src = it.url;
+        }
+        return it;
+      });
+    });
+  }
+
+  // ---------- fill bucket ----------
+  // x, y are screen (viewport) coordinates. On blank paper it fills like a paint program; on the page it fills
+  // inside a closed shape that was drawn, and refuses areas that run off the screen (that would cover the whole page).
+  function fillAt(x, y) {
+    var r = window.devicePixelRatio || 1, W = c.width, H = c.height;
+    var t = document.createElement('canvas'), g = t.getContext('2d');
+    t.width = W; t.height = H; g.setTransform(r, 0, 0, r, 0, 0);
+    if (paper) {
+      paint(g, 0, 0, layers.paper.items);
+      g.globalCompositeOperation = 'destination-over'; g.fillStyle = '#fff'; g.fillRect(0, 0, innerWidth, innerHeight);
+    } else {
+      paint(g, scrollX, scrollY, layers.page.items);
+    }
+    var d;
+    try { d = g.getImageData(0, 0, W, H).data; } catch (err) { say('The fill bucket needs the website to be opened from the internet, not from a file.'); return; }
+    var px = Math.floor(x * r), py = Math.floor(y * r);
+    if (px < 0 || py < 0 || px >= W || py >= H) return;
+    var o = (py * W + px) * 4, R = d[o], G = d[o + 1], B = d[o + 2], A = d[o + 3];
+    var mask = new Uint8Array(W * H), stack = [py * W + px], x0 = px, x1 = px, y0 = py, y1 = py;
+    mask[py * W + px] = 1;
+    function same(k) { var i = k * 4; return Math.abs(d[i] - R) + Math.abs(d[i + 1] - G) + Math.abs(d[i + 2] - B) + Math.abs(d[i + 3] - A) < 100; }
+    while (stack.length) {
+      var k = stack.pop(), kx = k % W, ky = (k - kx) / W;
+      if (kx < x0) x0 = kx; if (kx > x1) x1 = kx; if (ky < y0) y0 = ky; if (ky > y1) y1 = ky;
+      if (kx > 0 && !mask[k - 1] && same(k - 1)) { mask[k - 1] = 1; stack.push(k - 1); }
+      if (kx < W - 1 && !mask[k + 1] && same(k + 1)) { mask[k + 1] = 1; stack.push(k + 1); }
+      if (ky > 0 && !mask[k - W] && same(k - W)) { mask[k - W] = 1; stack.push(k - W); }
+      if (ky < H - 1 && !mask[k + W] && same(k + W)) { mask[k + W] = 1; stack.push(k + W); }
+    }
+    if (!paper && (x0 === 0 || y0 === 0 || x1 === W - 1 || y1 === H - 1)) {
+      say('To fill on the page, click inside a closed shape you drew, like a circle. Or use blank paper 📄.');
+      return;
+    }
+    // grow the filled area a little so it tucks under the soft edges of the lines around it
+    var D = Math.ceil(r * 1.5);
+    x0 = Math.max(0, x0 - D); y0 = Math.max(0, y0 - D); x1 = Math.min(W - 1, x1 + D); y1 = Math.min(H - 1, y1 + D);
+    var bw = x1 - x0 + 1, bh = y1 - y0 + 1, grow = new Uint8Array(bw * bh), out = new Uint8Array(bw * bh);
+    for (var yy = 0; yy < bh; yy++) for (var xx = 0; xx < bw; xx++) {
+      for (var e = -D; e <= D; e++) { var sx = x0 + xx + e; if (sx >= 0 && sx < W && mask[(y0 + yy) * W + sx]) { grow[yy * bw + xx] = 1; break; } }
+    }
+    for (yy = 0; yy < bh; yy++) for (xx = 0; xx < bw; xx++) {
+      for (e = -D; e <= D; e++) { var sy = yy + e; if (sy >= 0 && sy < bh && grow[sy * bw + xx]) { out[yy * bw + xx] = 1; break; } }
+    }
+    var fc = document.createElement('canvas'), fg = fc.getContext('2d');
+    fc.width = bw; fc.height = bh;
+    var img = fg.createImageData(bw, bh), hex = parseInt(pen.colour.slice(1), 16);
+    for (var i = 0; i < bw * bh; i++) if (out[i]) {
+      img.data[i * 4] = hex >> 16; img.data[i * 4 + 1] = hex >> 8 & 255; img.data[i * 4 + 2] = hex & 255; img.data[i * 4 + 3] = 255;
+    }
+    fg.putImageData(img, 0, 0);
+    push({ type: 'fill', x: x0 / r + (paper ? 0 : scrollX), y: y0 / r + (paper ? 0 : scrollY), w: bw / r, h: bh / r, img: fc, url: fc.toDataURL('image/png') });
+    changed();
+  }
+
+  // ---------- drawing with the pointer ----------
+  var cur = null, start = null, drew = false, activeId = null;
+  function pos(e) { return paper ? [e.clientX, e.clientY] : [e.pageX, e.pageY]; }
+  function axis() { return document.documentElement.clientWidth / 2 + (paper ? 0 : scrollX); }
+  function newItem(p) {
+    var t = pen.tool, mx = pen.mirror ? axis() : null;
+    if (isShape(t)) return { type: 'shape', shape: t, colour: pen.colour, width: pen.width, a: p, b: p, mx: mx };
+    var it = { type: 'stroke', brush: t, colour: pen.colour, width: t === 'eraser' ? 12 + pen.width * 2 : pen.width, pts: [p], mx: mx,
+               seed: Math.floor(Math.random() * 1e9), hue: Math.floor(Math.random() * 360) };
+    if (t === 'spray' || t === 'glitter') it.dots = [];
+    return it;
+  }
+  function extend(it, p) {
+    if (it.type === 'shape') { it.b = p; return; }
+    it.pts.push(p);
+    if (!it.dots) return;
+    var spray = it.brush === 'spray', rad = spray ? it.width * 3 + 6 : it.width * 1.5 + 6, n = spray ? 10 + it.width : 3;
+    for (var i = 0; i < n; i++) {
+      var a = Math.random() * Math.PI * 2, dist = Math.sqrt(Math.random()) * rad;
+      var x = Math.round((p[0] + Math.cos(a) * dist) * 10) / 10, y = Math.round((p[1] + Math.sin(a) * dist) * 10) / 10;
+      it.dots.push(spray ? [x, y] : [x, y, Math.floor(Math.random() * SPARKLE.length), Math.round((1.5 + Math.random() * 3) * 10) / 10]);
+    }
+  }
+  document.addEventListener('pointerdown', function (e) {
+    if (activeId !== null || e.button !== 0 || tools.contains(e.target)) return;
+    if (e.pointerType === 'touch' && !(COARSE && !panel.hidden)) return;
+    if (document.querySelector('dialog[open]')) return;
+    var p = pos(e);
+    activeId = e.pointerId; start = p; cur = null; drew = false;
+    if (pen.tool === 'fill') {
+      // a fill click should not also open a drawing or follow a link underneath
+      start = null; drew = true; say(''); fillAt(e.clientX, e.clientY);
+      return;
+    }
+    if (pen.tool === 'sticker') {
+      cur = { type: 'sticker', src: pen.sticker, x: p[0], y: p[1], size: pen.sticker === 'heart' || pen.sticker === 'star' ? 70 : 160 };
+      push(cur); drew = true; redraw();
+    }
+  });
+  document.addEventListener('pointermove', function (e) {
+    if (e.pointerId !== activeId || !start) return;
+    var p = pos(e), moved = Math.hypot(p[0] - start[0], p[1] - start[1]);
+    if (cur && cur.type === 'sticker') {
+      // drag while stamping to make the sticker bigger or smaller
+      if (moved > 5) { cur.size = Math.max(24, moved * 2); redraw(); }
+      return;
+    }
+    if (!cur) {
+      if (moved < 5) return;
+      cur = newItem(start); push(cur); drew = true;
+      document.body.classList.add('drawing');
+      var sel = window.getSelection && window.getSelection(); if (sel) sel.removeAllRanges();
+    }
+    extend(cur, p);
+    redraw();
+  });
+  function end(e) {
+    if (e.pointerId !== activeId) return;
+    activeId = null;
+    if (cur) changed();
+    if (drew) setTimeout(function () { drew = false; }, 0);
+    start = cur = null;
+    document.body.classList.remove('drawing');
+  }
+  document.addEventListener('pointerup', end);
+  document.addEventListener('pointercancel', end);
+  // a drag that drew a line should not also count as a click on a drawing or link
+  document.addEventListener('click', function (e) {
+    if (drew) { e.preventDefault(); e.stopPropagation(); drew = false; }
+  }, true);
+  document.addEventListener('dragstart', function (e) { if (activeId !== null) e.preventDefault(); });
+  document.addEventListener('keydown', function (e) {
+    if (!(e.metaKey || e.ctrlKey) || e.altKey) return;
+    var k = e.key.toLowerCase();
+    if (k === 'z' && !e.shiftKey) undo();
+    else if ((k === 'z' && e.shiftKey) || k === 'y') redo();
+    else return;
+    e.preventDefault();
+  });
+
+  // ---------- toolbar state ----------
+  function say(msg) { note.textContent = msg || ''; }
+  function setFingerDrawing() {
+    if (COARSE) document.documentElement.style.touchAction = panel.hidden ? '' : 'none';
+  }
+  function update() {
+    document.documentElement.style.setProperty('--pencil', cursor());
+    tools.style.setProperty('--cur', pen.colour);
+    var known = false;
+    tools.querySelectorAll('[data-colour]').forEach(function (b) {
+      var on = b.dataset.colour === pen.colour; known = known || on; b.setAttribute('aria-pressed', String(on));
+    });
+    q('.custom').classList.toggle('picked', !known);
+    tools.querySelectorAll('[data-tool]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.tool === pen.tool)); });
+    tools.querySelectorAll('[data-sticker]').forEach(function (b) { b.setAttribute('aria-pressed', String(pen.tool === 'sticker' && b.dataset.sticker === pen.sticker)); });
+    tools.querySelectorAll('[data-width]').forEach(function (b) { b.setAttribute('aria-pressed', String(+b.dataset.width === pen.width)); });
+    q('[data-act=mirror]').setAttribute('aria-pressed', String(pen.mirror));
+    q('[data-act=paper]').setAttribute('aria-pressed', String(paper));
+    q('[data-act=undo]').disabled = !L().items.length;
+    q('[data-act=redo]').disabled = !L().redo.length;
+    var ink = hasInk();
+    q('[data-act=save]').disabled = q('[data-act=clear]').disabled = q('[data-act=savepage]').disabled = !ink;
+    q('[data-act=savepage]').hidden = paper;
+    fold.textContent = paper ? 'Blank paper' : 'Pencils';
+    guide.hidden = !pen.mirror;
+  }
+  function useBrushIfNeeded() { if (pen.tool === 'eraser' || pen.tool === 'sticker') pen.tool = lastBrush; }
+
+  tools.addEventListener('click', function (e) {
+    var b = e.target.closest('button');
+    if (!b) return;
+    say('');
+    var d = b.dataset;
+    if (d.colour) { pen.colour = d.colour; useBrushIfNeeded(); }
+    else if (d.width) { pen.width = +d.width; if (pen.tool === 'sticker') pen.tool = lastBrush; }
+    else if (d.tool) { pen.tool = d.tool; if (brushes.some(function (x) { return x[0] === d.tool; })) lastBrush = d.tool; }
+    else if (d.sticker) { pen.tool = 'sticker'; pen.sticker = d.sticker; if (d.sticker.indexOf('art/') === 0) image(d.sticker); }
+    else if (d.act === 'fold') { panel.hidden = !panel.hidden; fold.setAttribute('aria-expanded', String(!panel.hidden)); setFingerDrawing(); }
+    else if (d.act === 'mirror') pen.mirror = !pen.mirror;
+    else if (d.act === 'paper') {
+      paper = !paper; sheet.hidden = !paper; document.documentElement.classList.toggle('on-paper', paper);
+      redraw();
+    }
+    else if (d.act === 'undo') undo();
+    else if (d.act === 'redo') redo();
+    else if (d.act === 'clear') clearAll();
+    else if (d.act === 'save') saveImage();
+    else if (d.act === 'savepage') saveWithPage(b);
+    update();
+  });
+  picker.addEventListener('input', function () { pen.colour = picker.value.toUpperCase(); useBrushIfNeeded(); update(); });
+
+  // ---------- saving ----------
+  function bounds() {
+    if (paper) return { x: 0, y: 0, w: document.documentElement.clientWidth, h: document.documentElement.clientHeight };
+    var x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+    function add(x, y, pad, mx) {
+      x0 = Math.min(x0, x - pad); x1 = Math.max(x1, x + pad); y0 = Math.min(y0, y - pad); y1 = Math.max(y1, y + pad);
+      if (mx != null) add(2 * mx - x, y, pad, null);
+    }
+    live(layers.page.items).forEach(function (it) {
+      if (it.type === 'stroke' && it.brush !== 'eraser') it.pts.forEach(function (p) { add(p[0], p[1], it.width * 3 + 10, it.mx); });
+      else if (it.type === 'shape') { add(it.a[0], it.a[1], it.width, it.mx); add(it.b[0], it.b[1], it.width, it.mx); }
+      else if (it.type === 'fill') { add(it.x, it.y, 0); add(it.x + it.w, it.y + it.h, 0); }
+      else if (it.type === 'sticker') { var wh = stickerSize(it); add(it.x - wh[0] / 2, it.y - wh[1] / 2, 0); add(it.x + wh[0] / 2, it.y + wh[1] / 2, 0); }
+    });
+    if (x0 === Infinity) return null;
+    var pad = 30, docW = document.documentElement.scrollWidth, docH = document.documentElement.scrollHeight;
+    x0 = Math.max(0, x0 - pad); y0 = Math.max(0, y0 - pad); x1 = Math.min(docW, x1 + pad); y1 = Math.min(docH, y1 + pad);
+    return { x: x0, y: y0, w: x1 - x0, h: y1 - y0 };
+  }
+  function render(b, scale, white) {
+    var out = document.createElement('canvas'), g = out.getContext('2d');
+    out.width = Math.round(b.w * scale); out.height = Math.round(b.h * scale);
+    g.scale(scale, scale);
+    paint(g, b.x, b.y, L().items);
+    if (white) { g.globalCompositeOperation = 'destination-over'; g.fillStyle = '#fff'; g.fillRect(0, 0, b.w, b.h); }
+    return out;
+  }
+  function download(canvas, name) {
+    try {
+      canvas.toBlob(function (blob) {
+        if (!blob) return;
+        var a = document.createElement('a');
+        a.href = URL.createObjectURL(blob); a.download = name;
+        document.body.appendChild(a); a.click(); a.remove();
+        setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+      }, 'image/png');
+    } catch (err) {
+      say('Saving pictures with stickers needs the website to be opened from the internet, not from a file.');
+    }
+  }
+  function saveImage() {
+    var b = bounds();
+    if (b) download(render(b, Math.min(window.devicePixelRatio || 1, 2), true), 'my-drawing.png');
+  }
+  // "Save + page" photographs the page under the drawing; the helper library is only fetched when this button is used
+  var h2c = null;
+  function loadH2C() {
+    if (!h2c) h2c = new Promise(function (ok, fail) {
+      var s = document.createElement('script');
+      s.src = H2C; s.integrity = H2C_SRI; s.crossOrigin = 'anonymous'; s.referrerPolicy = 'no-referrer';
+      s.onload = function () { window.html2canvas ? ok(window.html2canvas) : fail(); };
+      s.onerror = function () { h2c = null; fail(); };
+      document.head.appendChild(s);
+    });
+    return h2c;
+  }
+  function saveWithPage(button) {
+    var b = bounds();
+    if (!b) return;
+    var scale = Math.min(window.devicePixelRatio || 1, 2), label = button.textContent;
+    button.textContent = 'Saving…'; button.disabled = true;
+    loadH2C().then(function (html2canvas) {
+      return html2canvas(document.body, {
+        x: b.x, y: b.y, width: b.w, height: b.h, scrollX: 0, scrollY: 0, scale: scale, backgroundColor: '#fff', logging: false,
+        // the copy of the page restarts its entrance animations, so switch them off or the name tiles come out invisible
+        onclone: function (doc) {
+          var st = doc.createElement('style');
+          st.textContent = '*, *::before, *::after { animation: none !important; transition: none !important; }';
+          doc.head.appendChild(st);
+        },
+        ignoreElements: function (el) { return el === c || el === tools || el === guide || el === sheet || el.tagName === 'DIALOG'; }
+      });
+    }).then(function (shot) {
+      var out = document.createElement('canvas'), g = out.getContext('2d');
+      out.width = Math.round(b.w * scale); out.height = Math.round(b.h * scale);
+      g.drawImage(shot, 0, 0, out.width, out.height);
+      g.globalCompositeOperation = 'multiply';
+      g.drawImage(render(b, scale, false), 0, 0);
+      download(out, 'my-drawing-on-the-page.png');
+    }).catch(function () {
+      say('Sorry, the page picture could not be made. "Save" still saves the drawing.');
+    }).then(function () { button.textContent = label; update(); });
+  }
+
+  restore();
+  if (COARSE) { panel.hidden = true; fold.setAttribute('aria-expanded', 'false'); }
+  addEventListener('scroll', redraw, { passive: true });
+  addEventListener('resize', size);
+  update();
+  size();
+})();
+</script>
+</body>
+</html>
