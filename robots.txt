@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://advekatarjun.com/sitemap.xml
