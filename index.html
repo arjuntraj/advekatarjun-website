@@ -190,6 +190,21 @@ img { -webkit-user-drag: none; }
 .doodle-tools .acts .savepage { background: var(--blue); color: #fff; }
 .doodle-tools .note { margin: 0; font-family: var(--body); font-size: 13px; line-height: 1.3; color: var(--ink-soft); }
 .doodle-tools .note:empty { display: none; }
+.doodle-tools .hint { margin: 0; font-family: var(--body); font-size: 13px; line-height: 1.3; color: var(--ink-soft); }
+.doodle-tools .hint[hidden] { display: none; }
+/* phones: a wide, short toolbar along the bottom so most of the screen stays free for drawing */
+@media (max-width: 600px) {
+  .doodle-tools { left: 8px; right: 8px; bottom: 8px; width: auto; padding: 8px 10px 10px; box-shadow: 4px 4px 0 var(--ink); }
+  .doodle-tools .fold { font-size: 21px; }
+  .doodle-tools .panel { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
+  .doodle-tools .grid { display: contents; }
+  .doodle-tools .t, .doodle-tools .pen { width: 31px; height: 31px; font-size: 17px; }
+  .doodle-tools .t img { max-width: 25px; max-height: 25px; }
+  .doodle-tools .acts, .doodle-tools .hint, .doodle-tools .note { flex-basis: 100%; }
+  .doodle-tools .acts { margin-top: 4px; }
+  .doodle-tools .acts button { font-size: 17px; padding: 7px 4px 5px; }
+  .doodle-tools.folded { left: auto; }
+}
 </style>
 </head>
 <body>
@@ -325,7 +340,8 @@ img { -webkit-user-drag: none; }
     + btn('', 'Undo (Ctrl+Z)', '↶', 'data-act="undo"') + btn('', 'Redo (Ctrl+Shift+Z)', '↷', 'data-act="redo"') + '</div>'
     + '<div class="acts"><button type="button" class="save" data-act="save">Save</button>'
     + '<button type="button" class="savepage" data-act="savepage">Save + page</button>'
-    + '<button type="button" data-act="clear">Rub out</button></div><p class="note" aria-live="polite"></p></div>';
+    + '<button type="button" data-act="clear">Rub out</button></div><p class="hint" hidden>☝️ 1 finger draws · ✌️ 2 fingers scroll</p>'
+    + '<p class="note" aria-live="polite"></p></div>';
   var panel = tools.querySelector('.panel'), fold = tools.querySelector('.fold'), note = tools.querySelector('.note');
   var picker = tools.querySelector('input[type=color]');
   function q(sel) { return tools.querySelector(sel); }
@@ -569,6 +585,23 @@ img { -webkit-user-drag: none; }
 
   // ---------- drawing with the pointer ----------
   var cur = null, start = null, drew = false, activeId = null;
+  // touch screens: one finger draws while the toolbar is open; two fingers scroll the page instead
+  var fingers = {}, panning = false, lastMid = null;
+  function fingerDrawing() { return COARSE && !panel.hidden; }
+  function fingerMid() {
+    var ids = Object.keys(fingers), x = 0, y = 0;
+    ids.forEach(function (id) { x += fingers[id][0]; y += fingers[id][1]; });
+    return [x / ids.length, y / ids.length];
+  }
+  function startPan() {
+    // a second finger landed: drop the line the first finger may have started and scroll instead
+    if (cur && L().items[L().items.length - 1] === cur) L().items.pop();
+    cur = start = null; activeId = null; drew = true; panning = true; lastMid = fingerMid();
+    // the page uses smooth scrolling for its menu links; turn it off so the page follows the fingers exactly
+    document.documentElement.style.scrollBehavior = 'auto';
+    document.body.classList.remove('drawing');
+    redraw(); update();
+  }
   function pos(e) { return paper ? [e.clientX, e.clientY] : [e.pageX, e.pageY]; }
   function axis() { return document.documentElement.clientWidth / 2 + (paper ? 0 : scrollX); }
   function newItem(p) {
@@ -591,8 +624,15 @@ img { -webkit-user-drag: none; }
     }
   }
   document.addEventListener('pointerdown', function (e) {
-    if (activeId !== null || e.button !== 0 || tools.contains(e.target)) return;
-    if (e.pointerType === 'touch' && !(COARSE && !panel.hidden)) return;
+    if (tools.contains(e.target)) return;
+    // on touch devices a finger or stylus only draws while the toolbar is open
+    if ((e.pointerType === 'touch' || (COARSE && e.pointerType === 'pen')) && !fingerDrawing()) return;
+    if (e.pointerType === 'touch') {
+      fingers[e.pointerId] = [e.clientX, e.clientY];
+      if (Object.keys(fingers).length >= 2) { startPan(); return; }
+      if (panning) return;
+    }
+    if (activeId !== null || e.button !== 0) return;
     if (document.querySelector('dialog[open]')) return;
     var p = pos(e);
     activeId = e.pointerId; start = p; cur = null; drew = false;
@@ -607,6 +647,13 @@ img { -webkit-user-drag: none; }
     }
   });
   document.addEventListener('pointermove', function (e) {
+    if (panning && fingers[e.pointerId]) {
+      fingers[e.pointerId] = [e.clientX, e.clientY];
+      var m = fingerMid();
+      if (!paper) window.scrollBy(lastMid[0] - m[0], lastMid[1] - m[1]);
+      lastMid = m;
+      return;
+    }
     if (e.pointerId !== activeId || !start) return;
     var p = pos(e), moved = Math.hypot(p[0] - start[0], p[1] - start[1]);
     if (cur && cur.type === 'sticker') {
@@ -624,6 +671,15 @@ img { -webkit-user-drag: none; }
     redraw();
   });
   function end(e) {
+    if (fingers[e.pointerId]) {
+      delete fingers[e.pointerId];
+      if (!Object.keys(fingers).length) {
+        if (panning) document.documentElement.style.scrollBehavior = '';
+        panning = false;
+        if (drew) setTimeout(function () { drew = false; }, 0);
+      }
+      else if (panning) lastMid = fingerMid();
+    }
     if (e.pointerId !== activeId) return;
     activeId = null;
     if (cur) changed();
@@ -670,7 +726,9 @@ img { -webkit-user-drag: none; }
     var ink = hasInk();
     q('[data-act=save]').disabled = q('[data-act=clear]').disabled = q('[data-act=savepage]').disabled = !ink;
     q('[data-act=savepage]').hidden = paper;
-    fold.textContent = paper ? 'Blank paper' : 'Pencils';
+    fold.textContent = COARSE && panel.hidden ? '✏️ Tap to draw' : paper ? 'Blank paper' : 'Pencils';
+    q('.hint').hidden = !COARSE;
+    tools.classList.toggle('folded', panel.hidden);
     guide.hidden = !pen.mirror;
   }
   function useBrushIfNeeded() { if (pen.tool === 'eraser' || pen.tool === 'sticker') pen.tool = lastBrush; }
